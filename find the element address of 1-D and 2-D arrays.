@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main () {
+    
+    int arr_1d [] = {1,2,3,4,5} ;
+    int arr_1d_length = sizeof(arr_1d) / sizeof(arr_1d[0]) ;
+    
+    printf ("1-D Array:\n");
+    for (int i=0; i< arr_1d_length;i++) {
+        int value = arr_1d[i] ;
+        printf ( "element %d has memory address: %p\n", value, (void*)&value) ;
+    }
+    
+    int arr_2d [][3] = {{1,2,3}, {4,5,6},{7,8,9}} ;
+    int arr_2d_rows = sizeof(arr_2d) / sizeof(arr_2d[0]);
+    int arr_2d_cols = sizeof (arr_2d[0])/ sizeof (arr_2d[0][0]);
+    
+    printf ("\n2-D Array:\n");
+    for (int i=0; i< arr_2d_rows; i++) {
+        for (int j=0; j< arr_2d_cols; j++) {
+            int value = arr_2d[i][j];
+            printf ("Element %d at index (%d,%d) has memory address: %p\n", value, i,j, (void*) &value);
+        }
+    }
+    return 0;
+}
