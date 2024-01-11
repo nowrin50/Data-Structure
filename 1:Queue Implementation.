@@ -6,23 +6,24 @@ int queue[MAXSIZE];
 int front = 0;
 int rear = -1;
 
+//Enqueue Function:
 void enqueue (int item) {
-    if (rear == MAXSIZE -1) {
+    if (rear == MAXSIZE -1) {  //Check if the queue is full
         printf ("queue is full.cant enqueue.");
         return ;
     }
     rear ++;
-    queue[rear]=item;
+    queue[rear]=item;    // Add the item to the queue
     printf("%d enqueued to the queue.\n",item);
 }
-
+//Dequeue Function:
 int dequeue() {
     int item;
-    if (front >rear) {
+    if (front >rear) {  //Check if the queue is empty
         printf("queue is empty.can't dequeue. \n");
         return -1;
     }
-    item = queue[front];
+    item = queue[front];  // Retrieve item from the front of the queue
     front ++;
     return item;
 }
