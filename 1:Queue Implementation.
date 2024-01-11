@@ -1,0 +1,37 @@
+
+#include<stdio.h>
+#define MAXSIZE 100 
+
+int queue[MAXSIZE];
+int front = 0;
+int rear = -1;
+
+void enqueue (int item) {
+    if (rear == MAXSIZE -1) {
+        printf ("queue is full.cant enqueue.");
+        return ;
+    }
+    rear ++;
+    queue[rear]=item;
+    printf("%d enqueued to the queue.\n",item);
+}
+
+int dequeue() {
+    int item;
+    if (front >rear) {
+        printf("queue is empty.can't dequeue. \n");
+        return -1;
+    }
+    item = queue[front];
+    front ++;
+    return item;
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    printf("%d dequeued from the queue.\n", dequeue());
+    printf("%d dequeued from the queue.\n", dequeue());
+    return 0;
+}
